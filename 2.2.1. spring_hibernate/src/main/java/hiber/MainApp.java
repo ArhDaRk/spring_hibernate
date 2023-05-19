@@ -31,8 +31,8 @@ public class MainApp {
          System.out.println("Car model = "+user.getCarModel());
          System.out.println();
       }
-      User user = userService.getUserByCar("opel");
-      System.out.println(user);
+      System.out.println(userService.getUserByCar("opel", 3334));
+
       context.close();
    }
 }

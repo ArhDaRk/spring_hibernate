@@ -13,6 +13,9 @@ public class User {
    @Column(name = "name")
    private String firstName;
 
+   @Embedded
+   private Car car;
+
    @Column(name = "last_name")
    private String lastName;
 
@@ -21,10 +24,12 @@ public class User {
 
    public User() {}
    
-   public User(String firstName, String lastName, String email) {
+   public User(String firstName, String lastName, String email, Car car) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
+      this.car = car;
+
    }
 
    public Long getId() {
@@ -57,5 +62,21 @@ public class User {
 
    public void setEmail(String email) {
       this.email = email;
+   }
+
+   public String getCarModel() {
+      return car.getModel();
+   }
+
+   public int getCarSeries() {
+      return car.getSeries();
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              '}';
    }
 }
